@@ -29,10 +29,11 @@ def load_labels_file(filename, labels_num=1, shuffle=False):
             label = []
             for i in range(labels_num):
                 label.append(int(line[i+1]))
-            images.append(line[0])
-            labels.append(label)
+            yield line[0],label
+            #images.append(line[0])
+            #labels.append(label)
 
-    return images, labels
+    #return images, labels
 def read_image(filename, resize_height, resize_width,normalization=False):
     bgr_image = cv2.imread(filename)
     if len(bgr_image.shape)==2:
@@ -48,7 +49,7 @@ def read_image(filename, resize_height, resize_width,normalization=False):
 
 
 def create_records(image_dir, file, output_record_dir, resize_height, resize_width, shuffle, log=5):
-    images_list, labels_list = load_labels_file(file,1,shuffle)
+    '''images_list, labels_list = load_labels_file(file,1,shuffle)
     writer = tf.python_io.TFRecordWriter(output_record_dir)
     for i, [image_name,labels] in enumerate(zip(images_list,labels_list)):
         image_path = os.path.join(image_dir,images_list[i])
@@ -68,7 +69,30 @@ def create_records(image_dir, file, output_record_dir, resize_height, resize_wid
             'depth': _int64_feature(image.shape[2]),
             'label': _int64_feature(label)
         }))
+        writer.write(example.SerializeToString())'''
+    writer = tf.python_io.TFRecordWriter(output_record_dir)
+    i = 0
+    for image_name,labels in load_labels_file(file,1,shuffle):
+
+        image_path = os.path.join(image_dir,image_name)
+        if not os.path.exists(image_path):
+            print("Err: no image:", image_path)
+        image = read_image(image_path, resize_height, resize_width)
+        image_raw = image.tostring()
+        if i % log == 0 :
+            print("----------processing:%d-th--------------" % (i))
+            print("current image_path is %s" % (image_path), "shape:{}".format(image.shape), 'labels:{}'.format(labels))
+        label = labels[0]
+        print(label)
+        example = tf.train.Example(features=tf.train.Features(feature={
+            'image_raw': _bytes_feature(image_raw),
+            'height': _int64_feature(image.shape[0]),
+            'width': _int64_feature(image.shape[1]),
+            'depth': _int64_feature(image.shape[2]),
+            'label': _int64_feature(label)
+        }))
         writer.write(example.SerializeToString())
+        i = i+1
     writer.close()
 
 def read_records(filename, resize_height,resize_width, type=None):
@@ -151,9 +175,12 @@ if __name__ =='__main__':
     resize_width = 224
     shuffle = True
     log = 5
-    image_dir = 'train'
-    train_labels = 'train/train.txt'
+    image_dir = 'dataset/train'
+    train_labels = 'dataset/train.txt'
     train_recorder_output = 'train{}.tfrecords'.format(resize_width)
     create_records(image_dir,train_labels,train_recorder_output,resize_height,resize_width,shuffle,log)
-    disp_records('train224.tfrecords',224,224)
+    nums = get_example_nums('train224.tfrecords')
+    print(nums)
+    batch_test('train224.tfrecords',resize_height,resize_width)
+    #disp_records('train224.tfrecords',224,224)
 

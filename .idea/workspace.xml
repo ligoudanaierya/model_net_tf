@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb6c7f30-8c69-43c5-90e7-c1f3db124f5b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/create_tfrecord.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create_tfrecord.py" beforeDir="false" afterPath="$PROJECT_DIR$/create_tfrecord.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/Image_20181018175800972.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/Image_20181018175924935.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/Image_20181018175939923.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/Image_20181018175947711.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/Image_20181018175959574.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/Image_20181018180009363.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/Image_20181018180039866.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/makelabel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/train224.tfrecords" beforeDir="false" afterPath="$PROJECT_DIR$/train224.tfrecords" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +25,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/create_tfrecord.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="156" column="103" lean-forward="true" selection-start-line="156" selection-start-column="103" selection-end-line="156" selection-end-column="103" />
+            <state relative-caret-position="221">
+              <caret line="72" column="59" lean-forward="true" selection-start-line="72" selection-start-column="59" selection-end-line="72" selection-end-column="59" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -26,19 +35,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/train/makelabel.py">
+        <entry file="file://$PROJECT_DIR$/create_labels_files.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/train/train.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+            <state relative-caret-position="126">
+              <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -60,6 +60,7 @@
       <list>
         <option value="$PROJECT_DIR$/train/train.txt" />
         <option value="$PROJECT_DIR$/train/makelabel.py" />
+        <option value="$PROJECT_DIR$/create_labels_files.py" />
         <option value="$PROJECT_DIR$/create_tfrecord.py" />
       </list>
     </option>
@@ -85,7 +86,7 @@
             <path>
               <item name="model_net_tf" type="b2602c69:ProjectViewProjectNode" />
               <item name="model_net_tf" type="462c0819:PsiDirectoryNode" />
-              <item name="train" type="462c0819:PsiDirectoryNode" />
+              <item name="dataset" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -111,6 +112,27 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.create_tfrecord">
+    <configuration name="create_labels_files" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="model_net_tf" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/create_labels_files.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="create_tfrecord" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="model_net_tf" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -156,6 +178,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.create_tfrecord" />
+        <item itemvalue="Python.create_labels_files" />
         <item itemvalue="Python.makelabel" />
       </list>
     </recent_temporary>
@@ -174,7 +197,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1549" height="846" extended-state="6" />
+    <frame x="-6" y="-6" width="1549" height="846" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
@@ -211,10 +234,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dataset/train.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/create_labels_files.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/create_tfrecord.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="156" column="103" lean-forward="true" selection-start-line="156" selection-start-column="103" selection-end-line="156" selection-end-column="103" />
+        <state relative-caret-position="221">
+          <caret line="72" column="59" lean-forward="true" selection-start-line="72" selection-start-column="59" selection-end-line="72" selection-end-column="59" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
